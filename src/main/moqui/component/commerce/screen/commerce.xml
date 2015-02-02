@@ -1,0 +1,55 @@
+<screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-1.4.xsd" 
+        require-authentication="false">
+	
+	<!-- Include all the CSS and JS definition here -->
+	<!-- TODO: Adopt CSS/JS minification + aggregation framework -->
+	<always-actions>
+        <!-- TODO: implement way to only load base JS and CSS files and load others as needed on different screens! -->
+        <set field="footer_scripts" from="new LinkedHashSet([
+            '/media/js/jquery.js',
+            '/media/js/bootstrap.min.js',
+            '/media/js/jquery.scrollUp.min.js',
+            '/media/js/price-range.js',
+            '/media/js/jquery.prettyPhoto.js',
+            '/media/js/main.js'])"/>
+
+        <set field="html_stylesheets" from="new LinkedHashSet([
+        	'/media/css/bootstrap.min.css',
+            '/media/css/font-awesome.min.css', 
+            '/media/css/prettyPhoto.css',
+            '/media/css/price-range.css',
+            '/media/css/animate.css', 
+            '/media/css/main.css',
+            '/media/css/responsive.css'])"/>
+    </always-actions>
+	
+	<!-- Overriding default screen macro to adopt the commerce one -->
+	<macro-template type="html" location="template/screen-macro/commerce/CommerceScreenMacros.html.ftl"/>
+
+	<!--
+		Setting the defaults subscreen to render (landing page) 
+		All the subscreens that will shown in the menu under /commerce will be defined under commerce screen directory. The order
+		of showing the screen under menu item is set in individual screen definiton. 
+	-->
+	<subscreens default-item="home"> 
+    </subscreens>
+    
+    
+	<widgets>
+		<render-mode>
+            <text type="html" location="component://commerce/screen/includes/Header.html.ftl"/>
+            <text type="xsl-fo" location="component://commerce/screen/includes/Header.xsl-fo.ftl" no-boundary-comment="true"/>
+        </render-mode>
+        
+        <subscreens-menu id="commerce-menu" title="Commerce"/>
+        <!-- <subscreens-panel type="tab" id="commerce-menu" title="Commerce"/> -->
+        
+        <subscreens-active/>
+		
+		<render-mode>
+            <text type="html" location="component://commerce/screen/includes/Footer.html.ftl"/>
+            <text type="xsl-fo"><![CDATA[${sri.getAfterScreenWriterText()}</fo:flow></fo:page-sequence></fo:root>]]></text>
+        </render-mode>
+	</widgets>
+</screen>

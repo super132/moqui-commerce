@@ -1,0 +1,9 @@
+<screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-1.4.xsd" 
+        require-authentication="false" default-menu-index="3" default-menu-title="Product List">
+        
+	<widgets>
+		<label text="This is Product List" type="h2"/>
+	</widgets>
+        
+</screen>

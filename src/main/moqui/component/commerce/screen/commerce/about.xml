@@ -1,0 +1,9 @@
+<screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-1.4.xsd" 
+        require-authentication="false" default-menu-index="2" default-menu-title="About">
+        
+	<widgets>
+		<label text="This is About Page" type="h1"/>
+	</widgets>
+        
+</screen>

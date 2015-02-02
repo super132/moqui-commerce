@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entities xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/entity-definition-1.4.xsd">
+	<entity entity-name="Product" package-name="commerce">
+		<field name="productId" type="id" is-pk="true"></field>
+		<field name="name" type="text-long"></field>
+	</entity>
+</entities>
