@@ -1,6 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-1.4.xsd" 
         require-authentication="false">
+        
+    <!-- Overriding default screen macro to adopt the commerce one -->
+	<macro-template type="html" location="component://commerce/template/CommerceScreenMacros.html.ftl"/>
 	
 	<!-- Include all the CSS and JS definition here -->
 	<!-- TODO: Adopt CSS/JS minification + aggregation framework -->
@@ -23,14 +27,11 @@
             '/media/css/main.css',
             '/media/css/responsive.css'])"/>
     </always-actions>
-	
-	<!-- Overriding default screen macro to adopt the commerce one -->
-	<macro-template type="html" location="template/screen-macro/commerce/CommerceScreenMacros.html.ftl"/>
 
 	<!--
 		Setting the defaults subscreen to render (landing page) 
 		All the subscreens that will shown in the menu under /commerce will be defined under commerce screen directory. The order
-		of showing the screen under menu item is set in individual screen definiton. 
+		of showing the screen under menu item is set in individual screen definition.  
 	-->
 	<subscreens default-item="home"> 
     </subscreens>
@@ -43,7 +44,9 @@
         </render-mode>
         
         <subscreens-menu id="commerce-menu" title="Commerce"/>
-        <!-- <subscreens-panel type="tab" id="commerce-menu" title="Commerce"/> -->
+        
+        <!-- Closing header section in Header.html.ftl -->
+        <render-mode><text type="html"><![CDATA[</header>]]></text></render-mode> 
         
         <subscreens-active/>
 		

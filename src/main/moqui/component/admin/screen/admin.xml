@@ -1,6 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-1.4.xsd" 
         require-authentication="false">
+	
+	<!-- Overriding default screen macro to adopt the commerce one -->
+	<macro-template type="html" location="template/screen-macro/commerce/CommerceScreenHtmlMacros.ftl"/>
 	
 	<!-- Include all the CSS and JS definition here -->
 	<!-- TODO: Adopt CSS/JS minification + aggregation framework -->
@@ -23,9 +27,6 @@
             '/media/css/main.css',
             '/media/css/responsive.css'])"/>
     </always-actions>
-	
-	<!-- Overriding default screen macro to adopt the commerce one -->
-	<macro-template type="html" location="template/screen-macro/commerce/CommerceScreenHtmlMacros.ftl"/>
 
 	<!-- Defining all screens that linked to the commerce admin landing screen here -->
 	<!-- 

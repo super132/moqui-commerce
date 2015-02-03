@@ -1,9 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-1.4.xsd" 
         require-authentication="false" default-menu-index="1" default-menu-title="Home">
         
 	<widgets>
-		<label text="This is Home Page" type="h2"/>
+		<!-- home slider -->
+		<include-screen location="component://commerce/screen/commerce/home/slider.xml"/>
+		
+		<!-- outputting section tag according to the theme design -->
+		<render-mode><text type="html"><![CDATA[<section>]]></text></render-mode>
+		<container style="container">
+			<container style="row">
+				<!-- search filter -->
+				<include-screen location="component://commerce/screen/commerce/search-filter.xml"/>
+			
+				<container style="col-sm-9 padding-right">
+					<!-- Content / Feature item goes here -->
+					<label text="This is Home Page" type="h2"/>
+				</container>
+			</container>
+		</container>
+		<render-mode><text type="html"><![CDATA[</section>]]></text></render-mode>
 	</widgets>
         
 </screen>

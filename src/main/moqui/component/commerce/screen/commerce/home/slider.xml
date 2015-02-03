@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-1.4.xsd" 
-        require-authentication="false" default-menu-index="3" default-menu-title="Product List">
+        require-authentication="false" default-menu-include="false">
         
+    <!-- TODO: include actions for retrieving data to render the carousel -->
 	<widgets>
 		<!-- outputting section tag according to the theme design -->
-		<render-mode><text type="html"><![CDATA[<section>]]></text></render-mode>
+		<render-mode><text type="html"><![CDATA[<section id="slider">]]></text></render-mode>
 		<container style="container">
 			<container style="row">
-				<!-- search filter -->
-				<include-screen location="component://commerce/screen/commerce/search-filter.xml"/>
-			
-				<container style="col-sm-9 padding-right">
-					<!-- Content / Feature item goes here -->
-					<label text="This is Product List Page" type="h2"/>
+				<container style="col-sm-12">
+					<!-- rendering bootstrap carousel using FTL -->
+					<render-mode><text type="html" location="component://commerce/screen/commerce/home/carousel.ftl"></text></render-mode>
 				</container>
 			</container>
 		</container>

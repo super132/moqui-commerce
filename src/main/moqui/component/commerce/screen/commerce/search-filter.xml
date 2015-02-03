@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-1.4.xsd" 
+        require-authentication="false" default-menu-include="false">
+
+	<!-- This is the search panel on the left on home and list page for showing filters by product category, etc-->
+	<widgets>
+		<container style="col-sm-3">
+			<container style="left-sidebar">
+				<label text="Category" type="h2"/>
+				<!-- Product category group -->
+				<container id="accordian" style="panel-group category-products">
+					<!-- Rendering the panel by product category -->
+					<!-- Include a FTL template for rendering -->
+				</container>
+			</container>
+		</container>
+	</widgets>
+        
+</screen>
