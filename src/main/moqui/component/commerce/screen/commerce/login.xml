@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-1.4.xsd" 
+        require-authentication="false" default-menu-include="false">
+    
+    <transition name="authenticate">
+        <actions><script>ec.user.loginUser(userName, password, tenantId)</script></actions>
+        <default-response type="screen-last"/>
+        <error-response url="."/>
+    </transition>
+        
+	<widgets>
+		<!-- outputting section tag according to the theme design -->
+		<render-mode><text type="html"><![CDATA[<section id='form'>]]></text></render-mode>
+		<container style="container">
+		
+			<section-iterate name="headerMessages" list="ec.message.messages" entry="message">
+                <widgets><container style="message"><label text="${message}"/></container></widgets>
+            </section-iterate>
+            <section-iterate name="headerErrors" list="ec.message.errors" entry="errorMessage">
+                <widgets><container style="message error"><label text="${errorMessage}"/></container></widgets>
+            </section-iterate>
+            <section-iterate name="headerValidationErrors" list="ec.message.validationErrors" entry="validationError">
+                <!-- TODO: put these by fields instead of in header -->
+                <widgets><container style="message error"><label text="${validationError.message} (for field ${validationError.field})"/></container></widgets>
+            </section-iterate>
+
+            <section-iterate name="headerSavedMessages" list="ec.web?.savedMessages" entry="message">
+                <widgets><container style="message"><label text="${message}"/></container></widgets>
+            </section-iterate>
+            <section-iterate name="headerSavedErrors" list="ec.web?.savedErrors" entry="errorMessage">
+                <widgets><container style="message error"><label text="${errorMessage}"/></container></widgets>
+            </section-iterate>
+            <section-iterate name="headerSavedValidationErrors" list="ec.web?.savedValidationErrors" entry="validationError">
+                <!-- TODO: put these by fields instead of in header -->
+                <widgets><container style="message error"><label text="${validationError.message} (for field ${validationError.field})"/></container></widgets>
+            </section-iterate>
+            
+			<container style="row">
+				<container style="col-sm-4 col-sm-offset-1">
+					<!-- Login form -->
+					<container style="login-form">
+						<label text="Existing Customer, please login" type="h2"/>
+						<form-single name="login" transition="authenticate">
+							<field name="userName">
+								<default-field><text-line /></default-field>
+							</field>
+							<field name="password">
+								<default-field><text-line /></default-field>
+							</field>
+							<field name="submit">
+								<default-field title="Login"><submit /></default-field>
+							</field>
+						</form-single>
+					</container>
+				</container>
+			</container>
+		</container>
+		<render-mode><text type="html"><![CDATA[</section>]]></text></render-mode>
+	</widgets>
+        
+</screen>

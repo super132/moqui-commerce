@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<services xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/service-definition-1.4.xsd">
+
+	<service verb="authenticate">
+		<description>To authenticate a credential if it is eligible to access to commerce system.</description>
+		<in-parameters>
+			<parameter name="userName" required="true">
+				<text-length min="1"/>
+			</parameter>
+			<parameter name="password" required="true">
+				<matches message="The password must consist of at least 6 characters." regexp="[.]{6}+"/>
+			</parameter>
+		</in-parameters>
+		<out-parameters>
+			<parameter name="authenticated" type="Boolean" />
+		</out-parameters>
+	</service>
+
+</services>
