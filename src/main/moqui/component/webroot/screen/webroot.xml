@@ -16,6 +16,7 @@ This Work includes contributions authored by David E. Jones, not as a
     <subscreens default-item="commerce">
         <subscreens-item name="commerce" location="component://commerce/screen/commerce.xml"/>
         <subscreens-item name="admin" location="component://admin/screen/admin/admin.xml"/>
+        <subscreens-item name="Tools" location="component://tools/screen/Tools.xml"/>
     </subscreens>
     <widgets>
 

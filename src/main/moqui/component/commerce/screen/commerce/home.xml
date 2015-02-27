@@ -11,7 +11,7 @@
 		<render-mode><text type="html"><![CDATA[<section>]]></text></render-mode>
 		<container style="container">
 			<container style="row">
-				<!-- search filter -->
+				<!-- search filter left menu -->
 				<include-screen location="component://commerce/screen/commerce/search-filter.xml"/>
 			
 				<container style="col-sm-9 padding-right">
